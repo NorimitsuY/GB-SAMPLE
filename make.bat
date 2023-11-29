@@ -15,8 +15,6 @@ SET LCC_COMPILE=%LCC_COMPILE_BASE% -c -o
 
 SETLOCAL ENABLEDELAYEDEXPANSION
 
-:: Default to the hugedriver file
-:: SET "COMPILE_OBJECT_FILES=bin/hUGEDriver.obj.o"
 SET "COMPILE_OBJECT_FILES="
 
 :: loop for all files in the default source folder
@@ -28,8 +26,8 @@ FOR /R "source/" %%X IN (*.c) DO (
 
 
 :: Compile a .gb file from the compiled .o files
-%LCC_COMPILE_BASE% -Wm-yC  -Wl-yt3 -o dist/Release/GbTest.gb !COMPILE_OBJECT_FILES!
+%LCC_COMPILE_BASE% -Wm-yC  -Wl-yt3 -o dist/Release/GbSample.gb !COMPILE_OBJECT_FILES!
 
 endlocal
 
-"lib/romusage" dist\Release\GbTest.noi -a
+"lib/romusage" dist\Release\GbSample.noi -a
